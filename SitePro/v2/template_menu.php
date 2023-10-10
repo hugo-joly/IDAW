@@ -1,15 +1,3 @@
-<nav class="menu">
-    <ul>
-        <div class="menubuttons">
-            <li><a id="currentpage" href="index.php">Accueil</a></li>
-            <li><a href="cv.php">CV</a></li>
-            <li><a href="hobbies.php">Hobbies</a></li>
-            <li><a href="projets.php">Projets</a></li>
-            <li><a href="infos-technique.php">Infos Technique</a></li>
-        </div>
-    </ul> 
-</nav>
-
 <?php
     function renderMenuToHTML($currentPageId) {
     // un tableau qui d\'efinit la structure du site
@@ -21,10 +9,20 @@
             'hobbies' => array('Hobbies'),
             'infos-trechnique' => array('Infos Technique')
         );
-    // ...
+    echo '<nav class="menu">
+            <ul>
+                <div class="menubuttons">';
         foreach($mymenu as $pageId => $pageParameters) {
-            echo "..."; 
+            echo "<li>"; 
+            if ($pageId = $currentPageId) {
+                echo '<a id="currentpage" href="', $pageId, '.php">', $pageParameters, '</a></li>';
+            }
+            else {
+                echo '<a href="', $pageId, '.php">', $pageParameters, '</a></li>';
+            }
         }
-    // ...
+    echo '</div>
+    </ul> 
+</nav>';
     }
 ?>

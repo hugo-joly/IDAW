@@ -1,4 +1,5 @@
         <?php
+            $pageId = 'projets';
             require_once('template_header.php');
         ?>
         <header>

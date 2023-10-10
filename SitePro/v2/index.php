@@ -1,4 +1,5 @@
         <?php
+            $pageId = 'index';
             require_once('template_header.php');
         ?>
         <header><h1>JOLY Hugo</h1></header>

@@ -1,4 +1,5 @@
         <?php
+            $pageId = 'cv';
             require_once('template_header.php');
         ?>
         <header><h1>JOLY Hugo - CV</h1></header>
