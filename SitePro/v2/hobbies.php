@@ -7,6 +7,7 @@
         </header>
         <?php
             require_once('template_menu.php');
+            renderMenuToHTML($pageId);
         ?>
         <div class="content">
             <h2>Hobbie n°1 :</h2>

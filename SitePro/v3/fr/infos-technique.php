@@ -1,0 +1,2 @@
+        <p>infos techniques</p>
+ 

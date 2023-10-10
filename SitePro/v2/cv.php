@@ -5,6 +5,7 @@
         <header><h1>JOLY Hugo - CV</h1></header>
         <?php
             require_once('template_menu.php');
+            renderMenuToHTML($pageId);
         ?>
         <div class="content">
             <h2>Études :</h2>

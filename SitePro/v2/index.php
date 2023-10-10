@@ -5,7 +5,7 @@
         <header><h1>JOLY Hugo</h1></header>
         <?php
             require_once('template_menu.php');
-            renderToMenuHTML('index');
+            renderMenuToHTML($pageId);
         ?>
         <div class="presentation">
             <p>Je m'appelle Hugo JOLY.</p>

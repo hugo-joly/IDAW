@@ -7,6 +7,7 @@
         </header>
         <?php
             require_once('template_menu.php');
+            renderMenuToHTML($pageId);
         ?>
         <p>infos techniques</p>
         <?php
