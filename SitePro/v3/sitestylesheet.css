@@ -37,7 +37,7 @@ a:link, a:visited {
 }
 
 a:active, a:hover {
-    color: rgba(98, 80, 203, 0.63);
+    color: rgba(161, 150, 224, 0.63);
 }
 
 #currentpage {
@@ -70,4 +70,19 @@ h2 {
     border-top: 1px solid rgba(171, 187, 237, 0.69);
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size:14px;
+}
+
+.language {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size:12px;
+    margin-top:20px;
+    gap: 15px;
+}
+
+.imgstyle{
+    display: flex;
+    align-items: center;
 }

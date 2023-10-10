@@ -8,14 +8,10 @@
     } 
     
     $language = 'fr' ;
-    if(isset($_GET['lang'])) {
+    if(isset($_GET['lang'])) {
         $language = $_GET['lang'];
     }
-
-    print_r($_GET);
-    echo $language;
-        
-    
+   
 ?>
 
 <header class="bandeau_haut">
@@ -28,7 +24,7 @@
 
 <section class="corps">
     <?php
-        $pageToInclude = $currentPageId . ".php";
+        $pageToInclude = $language. "/". $currentPageId . ".php";
         if(is_readable($pageToInclude))
             require_once($pageToInclude);
         else

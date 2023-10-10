@@ -1,3 +1,10 @@
+        <ul>
+            <div class="language">
+                <li><a href="index.php?page=projets&lang=en">English</a></li>
+                <li><a href="index.php?page=projets&lang=fr">French</a></li>
+            </div>
+        </ul>
+        
         <div class="content">
             <h2>Open project at IMT Nord Europe :</h2>
             <p>#JeSuisIngénieurE project in collaboration with <a href="https://www.linkedin.com/in/jade-héloïse-pireaux-2644a2248/">Jade-Héloïse PIREAUX</a>, project manager.</p>

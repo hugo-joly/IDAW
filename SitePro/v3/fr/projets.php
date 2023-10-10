@@ -1,3 +1,10 @@
+        <ul>
+            <div class="language">
+                <li><a href="index.php?page=projets&lang=en">Anglais</a></li>
+                <li><a href="index.php?page=projets&lang=fr">Français</a></li>
+            </div>
+        </ul>
+        
         <div class="content">
             <h2>Projet ouvert à l'IMT Nord Europe :</h2>
             <p>Projet #JeSuisIngénieurE en collaboration avec la cheffe de projet <a href="https://www.linkedin.com/in/jade-héloïse-pireaux-2644a2248/">Jade-Héloïse PIREAUX</a>.</p>
