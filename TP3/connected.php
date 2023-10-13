@@ -18,6 +18,7 @@
             session_start();
             $successfullyLogged = true;
             $_SESSION['login'] = $tryLogin;
+            header("Location: index.php");
         } 
         else
             $errorText = "Erreur de login/password";
