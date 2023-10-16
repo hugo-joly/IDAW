@@ -1,5 +1,5 @@
 <?php
-require_once('header.php');
+
 require_once('config.php');
 
 $connectionString = "mysql:host=". _MYSQL_HOST;
@@ -14,6 +14,7 @@ $pdo = NULL;
 try {
     $pdo = new PDO($connectionString,_MYSQL_USER,_MYSQL_PASSWORD,$options);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    
 }
 
 catch (PDOException $erreur) {
@@ -29,6 +30,14 @@ $request = $pdo->prepare("select * from users");
 $request->execute();
 $table = $request->fetchAll(PDO::FETCH_ASSOC);
 
+/*** close the database connection ***/
+$pdo = null;
+
+?>
+
+<?php
+require_once('header.php')
+
 echo('<h2>Users</h2>');
 echo('<table>');
 echo('<tr> <td>Id</td> <td>Nom</td> <td>Email</td> </tr>');
@@ -36,9 +45,6 @@ foreach($table as $data){
     echo('<tr> <td> '. $data['id']. ' </td> <td> '. $data['name']. ' </td> <td> '. $data['email']. ' </td> </tr>');
 }
 echo('</table>');
-
-/*** close the database connection ***/
-$pdo = null;
 
 require_once('footer.php');
 ?>
