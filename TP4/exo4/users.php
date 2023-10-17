@@ -1,27 +1,7 @@
 <?php
+require_once('init_pdo.php');
 
-require_once('config.php');
-
-$connectionString = "mysql:host=". _MYSQL_HOST;
-
-if(defined('_MYSQL_PORT'))
-    $connectionString .= ";port=". _MYSQL_PORT;
-
-$connectionString .= ";dbname=" . _MYSQL_DBNAME;
-$options = array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8' );
-
-$pdo = NULL;
-try {
-    $pdo = new PDO($connectionString,_MYSQL_USER,_MYSQL_PASSWORD,$options);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    
-}
-
-catch (PDOException $erreur) {
-       echo 'Erreur : '.$erreur->getMessage();
-}
-
-//Ajout d'une entrée------------------------------------------
+//Ajout d'une entrée-----------------------------------------------
 $opt1 = NULL;
 $opt2 = NULL;
 
@@ -33,11 +13,41 @@ if (isset($_POST['email'])){
     $opt2 = $_POST['email'];
 }    
 
-if($opt1 != NULL || $opt2 != NULL){
+if($opt1 != NULL && $opt2 != NULL){
     $pdo->exec("INSERT INTO `users` (`id`, `name`, `email`) VALUES 
     (NULL, '$opt1', '$opt2');");
 }
-//------------------------------------------------------------
+//-----------------------------------------------------------------
+
+//Modification d'une entrée (possibilité de modifier un seul des deux champs)------------------------
+$opt1_modify = NULL;
+$opt2_modify = NULL;
+
+if (isset($_POST['modify_name'])){
+    $opt1_modify = $_POST['modify_name'];
+    $opt1_modify_id = $_POST['id'];
+}
+
+if (isset($_POST['modify_email'])){
+    $opt2_modify = $_POST['modify_email'];
+    $opt2_modify_id = $_POST['id'];
+}    
+
+if($opt1_modify != NULL){
+    $pdo->exec("UPDATE `users` SET `name` = '$opt1_modify' WHERE `users`.`id` = '$opt1_modify_id';");
+}
+
+if($opt2_modify != NULL){
+    $pdo->exec("UPDATE `users` SET `email` = '$opt2_modify' WHERE `users`.`id` = '$opt2_modify_id';");
+}
+//----------------------------------------------------------------------------------------------------
+
+//Suppression d'une entrée-----------------------------------------------
+if (isset($_POST['delete_id'])){
+    $delete_id = $_POST['delete_id'];
+    $pdo->exec("DELETE FROM `users` WHERE `users`.`id` = '$delete_id';");
+}
+//-----------------------------------------------------------------------
 
 $request = $pdo->prepare("select * from users");
 
@@ -60,7 +70,19 @@ foreach($table as $data){
     echo('<tr> <td> '. $data['id']. ' </td> <td> '. $data['name']. ' </td> <td> '. $data['email']. ' </td> <td><form id="modify" action="users.php" method="POST">
 
     <input type="hidden" name="id" value="'.$data['id'].'">
+
+    <label for="modify_name">Nom :</label>
+    <input type="text" name="modify_name" id="modify_name" />
+
+    <label for="modify_email">Email :</label>
+    <input type="text" name="modify_email" id="modify_email" />
+
     <input type="submit" value="Modifier" />
+
+</form><form id="delete" action="users.php" method="POST">
+
+<input type="hidden" name="delete_id" value="'.$data['id'].'">
+<input type="submit" value="Supprimer" />
 
 </form></td></tr>');
 }
