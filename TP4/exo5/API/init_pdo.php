@@ -20,4 +20,3 @@ try {
 catch (PDOException $erreur) {
        echo 'Erreur : '.$erreur->getMessage();
 }
-?>
