@@ -2,9 +2,10 @@
 require_once('init_pdo.php');
 
 switch($_SERVER['REQUEST_METHOD']) {
+    
     case 'GET' : //Obtenir tous les utilisateurs
-        $request = $pdo->prepare("select * from users");
-        $request->execute();
+        $request = $pdo->query("select * from users");
+        //$request->execute();
         $results = $request->fetchAll(PDO::FETCH_ASSOC);
 
         header("Content-Type: application/json; charset=UTF-8");
@@ -14,9 +15,9 @@ switch($_SERVER['REQUEST_METHOD']) {
 
         $parameters = json_decode(file_get_contents('php://input'));
 
-        if (isset($parameters['name']) && isset($parameters['email'])){
-            $name = $parameters['name'];
-            $email = $parameters['email'];
+        if (isset($parameters->name) && isset($parameters->email)){
+            $name = $parameters->name;
+            $email = $parameters->email;
 
             $request = $pdo->prepare("INSERT INTO `users` (`id`, `name`, `email`) VALUES (NULL, '$name', '$email');");
             $request->execute();
@@ -34,21 +35,23 @@ switch($_SERVER['REQUEST_METHOD']) {
             header("Content-Type: application/json; charset=utf-8");
             http_response_code(400);
         }
-    
+
+
+
     case 'PUT' : //Update un nom OU un email OU les deux
 
         $parameters = json_decode(file_get_contents('php://input'));
         
         $name = NULL;
         $email = NULL;
-        $id = $parameters['id'];
+        $id = $parameters->id;
 
-        if (isset($parameters['name'])){
-            $name = $parameters['name'];
+        if (isset($parameters->name)){
+            $name = $parameters->name;
         }
 
-        if(isset($parameters['email'])){
-            $email = $parameters['email'];
+        if(isset($parameters->email)){
+            $email = $parameters->email;
         }
 
         if ($name != NULL){
@@ -75,6 +78,32 @@ switch($_SERVER['REQUEST_METHOD']) {
             http_response_code(201);
             echo json_encode($result, JSON_UNESCAPED_UNICODE);
         }
-}
 
+    case 'DELETE' : //Supprime l'utilisateur dont on fourni l'identifiant
+
+        $parameters = json_decode(file_get_contents('php://input'));
+
+        $userId = $parameters->id; 
+
+        if (isset($userId)) {
+            $request = $pdo->prepare("DELETE FROM `users` WHERE `id` = $userId;");
+            $request->execute();
+
+            $rowCount = $request->rowCount();
+            if ($rowCount > 0) {
+                header("Content-Type: application/json; charset=utf-8");
+                http_response_code(204);
+            }
+            else {
+                header("Content-Type: application/json; charset=utf-8");
+                http_response_code(404); 
+            }
+        } 
+        
+        else {
+            header("Content-Type: application/json; charset=utf-8");
+            http_response_code(400);
+        }
+}
+?>
 

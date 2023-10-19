@@ -13,7 +13,7 @@ if (isset($_GET['id'])) {
 
     if ($row_count === 0) {
         header("Content-Type: application/json; charset=utf-8");
-        http_response_code(204);
+        http_response_code(404);
     }
     else {
         header("Content-Type: application/json; charset=utf-8");
