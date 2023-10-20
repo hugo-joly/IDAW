@@ -32,7 +32,6 @@
         <form id="addStudentForm" action="" onsubmit="onFormSubmit();">
             <div class="form-group row">
                 <label for="inputNom" class="col-sm-2 col-form-label">Nom*</label>                
-                <!--<style> .errorMessage{color: red; display: none;}</style><span class="errorMessage" id="errorField">This field is required</span>-->
                 <div class="col-sm-3">
                     <input type="text" class="form-control" id="inputNom" required >
                 </div>
@@ -61,6 +60,49 @@
             </div>
         </form>
         <script>
+            function supprimerLigne(button) {
+                var row = button.parentNode.parentNode ;
+                row.remove();
+            }
+
+            function editerLigne(button) {
+                var row = button.parentNode.parentNode; // Obtenez la ligne parente du bouton
+                var cells = row.getElementsByTagName("td"); // Obtenez les cellules de la ligne
+
+                // Parcourez les cellules et remplacez leur contenu par des champs d'entrée
+                for (var i = 0; i < cells.length - 1; i++) {
+                    var cell = cells[i];
+                    var contenu = cell.innerHTML;
+                    cell.innerHTML = '<input type="text" value="' + contenu + '">';
+                }
+
+                // Masquez le bouton "edit" et affichez le bouton "enregistrer"
+                var boutonEdit = row.querySelector('button[onclick="editerLigne(this)"]');
+                var boutonEnregistrer = row.querySelector('button[onclick="enregistrerLigne(this)"]');
+                boutonEdit.style.display = "none";
+                boutonEnregistrer.style.display = "inline-block";
+                }
+
+                function enregistrerLigne(button) {
+                var row = button.parentNode.parentNode; // Obtenez la ligne parente du bouton
+                var cells = row.getElementsByTagName("td"); // Obtenez les cellules de la ligne
+
+                // Parcourez les cellules, récupérez les valeurs des champs d'entrée et mettez à jour les cellules
+                for (var i = 0; i < cells.length - 1; i++) {
+                    var cell = cells[i];
+                    var input = cell.querySelector('input');
+                    var valeur = input.value;
+                    cell.innerHTML = valeur;
+                }
+
+                // Masquez le bouton "enregistrer" et affichez le bouton "edit"
+                var boutonEdit = row.querySelector('button[onclick="editerLigne(this)"]');
+                var boutonEnregistrer = row.querySelector('button[onclick="enregistrerLigne(this)"]');
+                boutonEdit.style.display = "inline-block";
+                boutonEnregistrer.style.display = "none";
+                }
+            
+
             function onFormSubmit() {
             // prevent the form to be sent to the server
                 event.preventDefault();
@@ -72,35 +114,13 @@
                 let remarques = $("#inputRemarques").val();
 
                 let aime_msg = "oui";
-                if (!aime_le_cours_Web){"non"};
-
-                /*const nameField = document.getElementById("inputNom");
-                const errorField = document.getElementById("errorField");
-
-                nameField.addEventListener("input", function() {
-                    if (nameField.validity.valid) {
-                        // Si le champ est valide, masquez le message d'erreur et supprimez la classe d'erreur
-                        errorField.style.display = "none";
-                        nameField.classList.remove("error");
-                    } else {
-                        // Si le champ n'est pas valide, affichez le message d'erreur et ajoutez la classe d'erreur
-                        errorField.style.display = "block";
-                        nameField.classList.add("error");
-                    }
-                    });
-
-                    document.querySelector("form").addEventListener("submit", function(e) {
-                        if (!nameField.validity.valid) {
-                            e.preventDefault();
-                            // Vous pouvez également ajouter ici un message d'erreur global pour le formulaire
-                        }
-                        });*/
-
-
+                if (!aime_le_cours_Web){aime_msg="non"};
 
                 $("#studentsTableBody").append(`<tr><td>${nom}</td><td>${prenom}</td><td>${date_de_naissance}</td><td>${aime_msg}</td>
-                    <td>${remarques}</td><td><input type="button" class="form-control" id="inputEdit" value="Edit" >
-                        <input type="button" class="form-control" id="inputDelete" value="Delete"></td></tr>`);
+                    <td>${remarques}</td><td><button onclick="editerLigne(this)">Editer</button>
+                        <button onclick="enregistrerLigne(this)" style="display: none;">Enregistrer</button>
+                        <button onclick="supprimerLigne(this)">Delete</button></td></tr>`);
+            
             } 
         </script>
     </body>
