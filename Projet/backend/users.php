@@ -2,8 +2,7 @@
     require_once('config.php');
     session_start();
     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-        $stmt = $pdo->prepare("SELECT * FROM aliments AND SELECT * FROM pers_aliments WHERE id_user = :id_user");
-        $stmt->bindParam(':id_user', $_SESSION['user_id']);
+        $stmt = $pdo->prepare("SELECT * FROM aliments");
         $stmt->execute();
         $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
         echo json_encode($users);
