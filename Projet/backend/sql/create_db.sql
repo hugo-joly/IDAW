@@ -31,7 +31,7 @@ CREATE TABLE `ALIMENTS` (
   `id` int(11) NOT NULL,
   `type` varchar(200) NOT NULL,
   `nom` varchar(200) NOT NULL,
-  `multiscore` varchar(200) NOT NULL,
+  `nutriscore` varchar(200) NOT NULL,
   `calories` int(11) NOT NULL,
   `glucides` int(11) NOT NULL,
   `image` varchar(200) NOT NULL
@@ -41,8 +41,11 @@ CREATE TABLE `ALIMENTS` (
 -- Déchargement des données de la table `ALIMENTS`
 --
 
-INSERT INTO `ALIMENTS` (`id`, `type`, `nom`, `multiscore`, `calories`, `glucides`, `image`) VALUES
-(1, 'Snacks', 'TUC', 'C', 144, 20, '');
+INSERT INTO `ALIMENTS` (`id`, `type`, `nom`, `nutriscore`, `calories`, `glucides`, `image`) VALUES
+(1, 'Snacks', 'TUC', 'C', 144, 20, ''),
+(2, 'Snacks', 'Chipster', 'E', 472, 66, ''),
+(3, 'Petit-déjeuners', 'Nutella', 'E', 539, 58, ''),
+(4, 'Produits laitiers', 'SKYR', 'A', 57, 4, ''),
 
 -- --------------------------------------------------------
 
@@ -66,7 +69,7 @@ CREATE TABLE `PERS_ALIMENTS` (
   `id_user` int(11) NOT NULL,
   `type` varchar(200) NOT NULL,
   `nom` varchar(200) NOT NULL,
-  `multiscore` varchar(200) NOT NULL,
+  `nutriscore` varchar(200) NOT NULL,
   `calories` int(11) NOT NULL,
   `glucides` int(11) NOT NULL,
   `image` varchar(200) NOT NULL
@@ -76,7 +79,7 @@ CREATE TABLE `PERS_ALIMENTS` (
 -- Déchargement des données de la table `PERS_ALIMENTS`
 --
 
-INSERT INTO `PERS_ALIMENTS` (`id`, `id_user`, `type`, `nom`, `multiscore`, `calories`, `glucides`, `image`) VALUES
+INSERT INTO `PERS_ALIMENTS` (`id`, `id_user`, `type`, `nom`, `nutriscore`, `calories`, `glucides`, `image`) VALUES
 (1, 1, 'sdfqsdfqs', 'dfqsdf', 'qsdfqsdf', 3, 3, ''),
 (2, 1, 'sdfqsdfqs', 'dfqsdf', 'qsdfqsdf', 3, 3, ''),
 (3, 1, 'qsdfqsdf', 'qsdfqsdf', 'qsdf', 3, 4, ''),
