@@ -1,7 +1,7 @@
 $(document).ready(function() {
     var table = $('#usersTable').DataTable({
         ajax: {
-            url: 'http://localhost/projet/IDAW/projet/backend/users.php',
+            url: 'http://localhost:80/IDAW/projet/backend/users.php',
             dataSrc: ''
         },
         columns: [
@@ -22,7 +22,7 @@ $(document).ready(function() {
 
 function addUser(formData, table) {
     $.ajax({
-        url: 'http://localhost/projet/IDAW/projet/backend/users.php',
+        url: 'http://localhost:80/IDAW/projet/backend/users.php',
         type: 'POST',
         data: formData,
         success: function(response) {
