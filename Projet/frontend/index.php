@@ -9,7 +9,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Utilisateurs</title>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+    
+    <link rel="stylesheet" type="text/css" href="StyleTable.css">
 </head>
 
 <body>
