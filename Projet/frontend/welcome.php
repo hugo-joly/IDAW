@@ -41,7 +41,6 @@
                             </thead>
                             <tbody></tbody>
                         </table>
-                        <?php require_once('components/conteur.php') ?>
                     </div>
                 </div>
             </div>
