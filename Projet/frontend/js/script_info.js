@@ -20,6 +20,7 @@ sqlForm.addEventListener('submit', function(event) {
     formData.append('poids', poids);
     updateChampSQL(formData);
 });
+
 function updateChampSQL(formData) {
     $.ajax({
         url: 'http://localhost/projet/IDAW/projet/backend/info_aliment.php', 
@@ -28,7 +29,7 @@ function updateChampSQL(formData) {
         processData: false,  
         contentType: false,
         success: function(response) {
-            console.log(response);
+            window.location.href = "../frontend/welcome.php";
         },
         error: function(xhr, status, error) {
             alert("Erreur: " + xhr.responseText);
