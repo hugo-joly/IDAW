@@ -9,11 +9,11 @@
         echo json_encode($users);
     }  elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (isset($_POST['type']) && isset($_POST['nom'])) {
-            $stmt = $pdo->prepare("INSERT INTO aliments (id_user, type, nom, multiscore, calories, glucides, image) VALUES (:id_user, :type, :nom, :multiscore, :calories, :glucides, :image)");
+            $stmt = $pdo->prepare("INSERT INTO aliments (id_user, type, nom, nutriscore, calories, glucides, image) VALUES (:id_user, :type, :nom, :nutriscore, :calories, :glucides, :image)");
             $stmt->bindParam(':id_user', $_SESSION['user_id']);
             $stmt->bindParam(':type', $_POST['type']);
             $stmt->bindParam(':nom', $_POST['nom']);
-            $stmt->bindParam(':multiscore', $_POST['multiscore']);
+            $stmt->bindParam(':nutriscore', $_POST['nutriscore']);
             $stmt->bindParam(':calories', $_POST['calories']);
             $stmt->bindParam(':glucides', $_POST['glucides']);
             $stmt->bindParam(':image', $_POST['image']);

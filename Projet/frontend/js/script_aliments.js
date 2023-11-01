@@ -1,13 +1,13 @@
 $(document).ready(function() {
     var table = $('#usersTable').DataTable({
         ajax: {
-            url: 'http://localhost/projet/IDAW/projet/backend/aliments.php',
+            url: 'http://localhost/IDAW/projet/backend/aliments.php',
             dataSrc: ''
         },
         columns: [
             { data: 'type' },
             { data: 'nom' },
-            { data: 'multiscore' },
+            { data: 'nutriscore' },
             { data: 'calories' },
             { data: 'glucides' },
             {
@@ -33,7 +33,7 @@ $(document).ready(function() {
 
 function addAliment(formData, table) {
     $.ajax({
-        url: 'http://localhost/projet/IDAW/projet/backend/aliments.php',
+        url: 'http://localhost/IDAW/projet/backend/aliments.php',
         type: 'POST',
         data: formData,
         success: function(response) {
@@ -47,7 +47,7 @@ function addAliment(formData, table) {
 
 function deleteAliment(userId, table) {
     $.ajax({
-        url: 'http://localhost/projet/IDAW/projet/backend/aliments.php?id=' + userId,
+        url: 'http://localhost/IDAW/projet/backend/aliments.php?id=' + userId,
         type: 'DELETE',
         success: function(response) {
             table.ajax.reload();

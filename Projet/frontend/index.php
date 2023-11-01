@@ -19,7 +19,7 @@
             <tr>
                 <th>type</th>
                 <th>nom</th>
-                <th>multiscore</th>
+                <th>nutriscore</th>
                 <th>calories</th>
                 <th>glucides</th>
             </tr>

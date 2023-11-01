@@ -1,13 +1,13 @@
 $(document).ready(function() {
     var table = $('#usersTable').DataTable({
         ajax: {
-            url: 'http://localhost/projet/IDAW/projet/backend/users.php',
+            url: 'http://localhost/IDAW/projet/backend/users.php',
             dataSrc: ''
         },
         columns: [
             { data: 'type' },
             { data: 'nom' },
-            { data: 'multiscore' },
+            { data: 'nutriscore' },
             { data: 'calories' },
             { data: 'glucides' }
         ]
