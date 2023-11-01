@@ -18,7 +18,7 @@
             <tr>
                 <th>type</th>
                 <th>nom</th>
-                <th>multiscore</th>
+                <th>nutriscore</th>
                 <th>calories</th>
                 <th>glucides</th>
                 <th>Actions</th>
@@ -32,8 +32,8 @@
         <input type="text" id="type" name="type" required><br><br>
         <label for="nom">Nom:</label>
         <input type="text" id="nom" name="nom" required><br><br>
-        <label for="multiscore">multiscore:</label>
-        <input type="text" id="multiscore" name="multiscore" required><br><br>
+        <label for="nutriscore">nutriscore:</label>
+        <input type="text" id="nutriscore" name="nutriscore" required><br><br>
         <label for="calories">Calories:</label>
         <input type="number" id="calories" name="calories" required><br><br>
         <label for="glucides">Glucides:</label>

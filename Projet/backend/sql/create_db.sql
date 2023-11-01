@@ -45,7 +45,7 @@ INSERT INTO `ALIMENTS` (`id`, `type`, `nom`, `nutriscore`, `calories`, `glucides
 (1, 'Snacks', 'TUC', 'C', 144, 20, ''),
 (2, 'Snacks', 'Chipster', 'E', 472, 66, ''),
 (3, 'Petit-déjeuners', 'Nutella', 'E', 539, 58, ''),
-(4, 'Produits laitiers', 'SKYR', 'A', 57, 4, ''),
+(4, 'Produits laitiers', 'SKYR', 'A', 57, 4, '');
 
 -- --------------------------------------------------------
 
