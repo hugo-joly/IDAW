@@ -18,17 +18,40 @@ $(document).ready(function() {
             }
         ]
     });
+
     $('#addAlimentForm').submit(function(event) {
         event.preventDefault();
         var formData = $(this).serialize();
         addAliment(formData, table);
     });
 
-
     $('#usersTable').on('click', '.delete-btn', function() {
         var userId = $(this).data('id');
         deleteAliment(userId, table);
     });
+
+    var modal = document.getElementById("edit_modal");
+
+    $('#usersTable').on('click', '.edit-btn', function() {
+        var alimentId = $(this).data('id');
+        //prefillForm(alimentId);
+        modal.style.display = "block";
+    });
+
+    var span = document.getElementsByClassName("close")[0];
+
+    span.onclick = function() {
+        modal.style.display = "none" ;
+    }
+
+    $('#editAlimentForm').submit(function(event) {
+        event.preventDefault();
+        var alimentId = $(this).data('id');
+        var formData = $(this).serialize();
+        updateAliment(formData, table, alimentId);
+        modal.style.display = "none";
+    });
+
 });
 
 function addAliment(formData, table) {
@@ -58,3 +81,39 @@ function deleteAliment(userId, table) {
     });
 }
 
+function updateAliment(formData, table, alimentId) {
+    $.ajax({
+        url: 'http://localhost/IDAW/projet/backend/aliments.php?id=' + alimentId,
+        type: 'PUT',
+        data: formData,
+        success: function(response) {
+            table.ajax.reload();
+        },
+        error: function(xhr, status, error) {
+            alert("Erreur: " + xhr.responseText);
+        }
+    });
+}
+
+/*
+function prefillForm(alimentId) {
+    $.ajax({
+        url: 'http://localhost/IDAW/projet/backend/aliments.php?id=' + alimentId,
+        type: 'GET',
+        success: function(data) {
+            // Remplir le formulaire de modification avec les données récupérées
+            $('#editForm input[name="type"]').val(data.type);
+            $('#editForm input[name="nom"]').val(data.nom);
+            $('#editForm input[name="nutriscore"]').val(data.nutriscore);
+            $('#editForm input[name="calories"]').val(data.calories);
+            $('#editForm input[name="glucides"]').val(data.glucides);
+
+            // Vous pouvez également stocker l'ID de l'élément dans un champ caché pour le soumettre ultérieurement
+            $('#editForm input[name="id"]').val(data.id);
+        },
+        error: function(xhr, status, error) {
+            alert("Erreur: " + xhr.responseText);
+        }
+    });
+}
+*/
