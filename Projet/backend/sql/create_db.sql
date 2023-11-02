@@ -69,7 +69,7 @@ CREATE TABLE `ALIMENTS` (
   `id_user` int(11) DEFAULT NULL,
   `type` varchar(200) NOT NULL,
   `nom` varchar(200) NOT NULL,
-  `multiscore` varchar(200) NOT NULL,
+  `nutriscore` varchar(200) NOT NULL,
   `calories` int(11) NOT NULL,
   `glucides` int(11) NOT NULL,
   `image` varchar(200) NOT NULL
@@ -79,11 +79,11 @@ CREATE TABLE `ALIMENTS` (
 -- Déchargement des données de la table `ALIMENTS`
 --
 
-INSERT INTO `ALIMENTS` (`id`, `id_user`, `type`, `nom`, `multiscore`, `calories`, `glucides`, `image`) VALUES
+INSERT INTO `ALIMENTS` (`id`, `id_user`, `type`, `nom`, `nutriscore`, `calories`, `glucides`, `image`) VALUES
 (1, 0, 'Snacks', 'TUC', 'C', 144, 20, ''),
 (2, 0, 'qsdfqsdf', 'qsdfqsdf', 'qdfqsdf', 3, 3, 'sfdgsfg'),
 (4, 2, 'wwfgsdfgsdfgsdfgsdfgsdfgsdfg', 'sdfgsdfgsdgsfgsgsfg', 'sgsdgsgsfgsfgsfgsfgs', 43, 43, 'sdfgsdghdgfhdgh'),
-(6, 1, '<dfqsgs', 'fgsdfgsdfg', 'ssfdg', 1, 1, '');
+(6, 1, 'dfqsgs', 'fgsdfgsdfg', 'ssfdg', 1, 1, '');
 
 -- --------------------------------------------------------
 
@@ -107,7 +107,7 @@ CREATE TABLE `PERS_ALIMENTS` (
   `id_user` int(11) NOT NULL,
   `type` varchar(200) NOT NULL,
   `nom` varchar(200) NOT NULL,
-  `multiscore` varchar(200) NOT NULL,
+  `nutriscore` varchar(200) NOT NULL,
   `calories` int(11) NOT NULL,
   `glucides` int(11) NOT NULL,
   `image` varchar(200) NOT NULL

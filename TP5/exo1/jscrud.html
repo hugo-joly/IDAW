@@ -67,7 +67,7 @@
 
             function editerLigne(button) {
                 var row = button.parentNode.parentNode; // Obtenez la ligne parente du bouton
-                var cells = row.getElementsByTagName("td"); // Obtenez les cellules de la ligne
+                var cells = row.getElementsByTagName("td"); // Obtenez les cellules de la ligne 
 
                 // Parcourez les cellules et remplacez leur contenu par des champs d'entrée
                 for (var i = 0; i < cells.length - 1; i++) {
@@ -81,9 +81,9 @@
                 var boutonEnregistrer = row.querySelector('button[onclick="enregistrerLigne(this)"]');
                 boutonEdit.style.display = "none";
                 boutonEnregistrer.style.display = "inline-block";
-                }
+            }
 
-                function enregistrerLigne(button) {
+            function enregistrerLigne(button) {
                 var row = button.parentNode.parentNode; // Obtenez la ligne parente du bouton
                 var cells = row.getElementsByTagName("td"); // Obtenez les cellules de la ligne
 
@@ -100,7 +100,7 @@
                 var boutonEnregistrer = row.querySelector('button[onclick="enregistrerLigne(this)"]');
                 boutonEdit.style.display = "inline-block";
                 boutonEnregistrer.style.display = "none";
-                }
+            }
             
 
             function onFormSubmit() {
