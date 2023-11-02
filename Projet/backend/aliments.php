@@ -2,19 +2,21 @@
     require_once('config.php');
     session_start();
     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-        /*if (isset($_GET['id'])) {
+        if (isset($_GET['id'])) {
             $stmt = $pdo->prepare("SELECT * FROM aliments WHERE id = :id");
             $stmt->bindParam(':id', $_GET['id']);
-            $stmt->execute();
+            $stmt->execute(); 
+            $aliment = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            echo json_encode($aliment);
             http_response_code(200);
         }
-        else {*/
+        else {
         $stmt = $pdo->prepare("SELECT * FROM aliments WHERE id_user=:id_user");
         $stmt->bindParam(':id_user', $_SESSION['user_id']);
         $stmt->execute();
         $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
         echo json_encode($users);
-        //}
+        }
     }  elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (isset($_POST['type']) && isset($_POST['nom'])) {
             $stmt = $pdo->prepare("INSERT INTO aliments (id_user, type, nom, nutriscore, calories, glucides, image) VALUES (:id_user, :type, :nom, :nutriscore, :calories, :glucides, :image)");

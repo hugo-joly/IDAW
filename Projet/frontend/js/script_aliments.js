@@ -34,8 +34,14 @@ $(document).ready(function() {
 
     $('#usersTable').on('click', '.edit-btn', function() {
         var alimentId = $(this).data('id');
-        //prefillForm(alimentId);
+        prefillForm(alimentId);
         modal.style.display = "block";
+        $('#editAlimentForm').submit(function(event) {
+            event.preventDefault();
+            var formData = $(this).serialize();
+            updateAliment(formData, table, alimentId);
+            modal.style.display = "none";
+        });
     });
 
     var span = document.getElementsByClassName("close")[0];
@@ -44,13 +50,13 @@ $(document).ready(function() {
         modal.style.display = "none" ;
     }
 
-    $('#editAlimentForm').submit(function(event) {
+    /*$('#editForm').submit(function(event) {
         event.preventDefault();
         var alimentId = $(this).data('id');
         var formData = $(this).serialize();
         updateAliment(formData, table, alimentId);
         modal.style.display = "none";
-    });
+    });*/
 
 });
 
@@ -95,25 +101,23 @@ function updateAliment(formData, table, alimentId) {
     });
 }
 
-/*
+
 function prefillForm(alimentId) {
     $.ajax({
         url: 'http://localhost/IDAW/projet/backend/aliments.php?id=' + alimentId,
         type: 'GET',
         success: function(data) {
-            // Remplir le formulaire de modification avec les données récupérées
-            $('#editForm input[name="type"]').val(data.type);
-            $('#editForm input[name="nom"]').val(data.nom);
-            $('#editForm input[name="nutriscore"]').val(data.nutriscore);
-            $('#editForm input[name="calories"]').val(data.calories);
-            $('#editForm input[name="glucides"]').val(data.glucides);
-
-            // Vous pouvez également stocker l'ID de l'élément dans un champ caché pour le soumettre ultérieurement
-            $('#editForm input[name="id"]').val(data.id);
+            $('#editForm input[id="edit_type"]').val(data.type);
+            $('#editForm input[id="edit_nom"]').val(data.nom);
+            $('#editForm input[id="edit_nutriscore"]').val(data.nutriscore);
+            $('#editForm input[id="edit_calories"]').val(data.calories);
+            $('#editForm input[id="edit_glucides"]').val(data.glucides);
+            $('#editForm input[id="edit_image"]').val(data.image);
+            $('#editForm input[id="edit_id"]').val(data.id);
         },
         error: function(xhr, status, error) {
             alert("Erreur: " + xhr.responseText);
         }
     });
 }
-*/
+

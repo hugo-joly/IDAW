@@ -48,7 +48,7 @@
     <div id="edit_modal" class="modal">
         <div class = "modal-content">
             <span class="close">&times;</span>
-            <form id="editAlimentForm" method="put">
+            <form id="editForm" method="put">
                 <label for="edit_type">Type:</label>
                 <input type="text" id="edit_type"><br><br>
                 <label for="edit_nom">Nom:</label>
@@ -61,6 +61,7 @@
                 <input type="number" id="edit_glucides"><br><br>
                 <label for="edit_image">Url:</label>
                 <input type="text" id="edit_image"><br><br>
+                <input type="hidden" id= "edit_id">
 
                 <button type="submit">Enregistrer</button>
             </form>
