@@ -31,7 +31,7 @@
             http_response_code(201);
         } else {
             http_response_code(400);
-            echo json_encode(array("message" => "Données invalides, veuillez fournir un nom et un email"));
+            echo json_encode(array("message" => "Données invalides, veuillez fournir un nom et un type"));
         }
     } elseif ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
         $id = $_GET['id'] ?? null;
