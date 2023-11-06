@@ -1,4 +1,16 @@
 $(document).ready(function() {
+    var showFormButton = document.getElementById('showFormButton');
+    var formContainer = document.getElementById('formContainer');
+
+    showFormButton.addEventListener('click', function() {
+        if (formContainer.style.display === 'none' || formContainer.style.display === '') {
+            formContainer.style.display = 'block';
+        } else {
+            formContainer.style.display = 'none';
+        }
+    });
+
+
     var table = $('#usersTable').DataTable({
         ajax: {
             url: 'http://localhost/projet/IDAW/projet/backend/aliments.php',
@@ -14,6 +26,7 @@ $(document).ready(function() {
                 data: null,
                 render: function(data) {
                     return '<button class="edit-btn" data-id="' + data.id + '">Modifier</button> <button class="delete-btn" data-id="' + data.id + '">Supprimer</button>';
+                    return '<button id="showFormButton">Modifier</button> <div id="formContainer" style="display: none;"> <form id="sqlForm">             <label for="poids">Poids en g :</label> <input type="number" id="poids" name="poids"> <input type="hidden" id="id_aliment" name="id_aliment" value="<?php echo $_POST['id']?>"> <input type="hidden" id="calories" name="calories" value="<?php echo $_POST['calories']; ?>"> <input type="submit" value="Enregistrer">             </form> </div>'
                 }
             }
         ]
@@ -34,22 +47,7 @@ $(document).ready(function() {
 
     $('#usersTable').on('click', '.edit-btn', function() {
         var alimentId = $(this).data('id');
-        //prefillForm(alimentId);
         modal.style.display = "block";
-    });
-
-    var span = document.getElementsByClassName("close")[0];
-
-    span.onclick = function() {
-        modal.style.display = "none" ;
-    }
-
-    $('#editAlimentForm').submit(function(event) {
-        event.preventDefault();
-        var alimentId = $(this).data('id');
-        var formData = $(this).serialize();
-        updateAliment(formData, table, alimentId);
-        modal.style.display = "none";
     });
 
 });
@@ -83,7 +81,7 @@ function deleteAliment(userId, table) {
 
 function updateAliment(formData, table, alimentId) {
     $.ajax({
-        url: 'http://localhost/IDAW/projet/backend/aliments.php?id=' + alimentId,
+        url: 'http://localhost/projet/IDAW/projet/backend/aliments.php?id=' + alimentId,
         type: 'PUT',
         data: formData,
         success: function(response) {

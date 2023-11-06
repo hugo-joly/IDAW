@@ -43,6 +43,7 @@
             echo json_encode(array("message" => "ID d'utilisateur manquant"));
         }
     } elseif ($_SERVER['REQUEST_METHOD'] === 'PUT') {
+        parse_str(file_get_contents("php://input"), $_PUT);
         $id = $_GET['id'] ?? null;
         if ($id) {
             $stmt = $pdo->prepare("UPDATE aliments SET id_user = :id_user, type = :type, nom = :nom, nutriscore = :nutriscore, calories = :calories, glucides = :glucides, image = :image WHERE id = :id");
@@ -53,6 +54,7 @@
             $stmt->bindParam(':calories', $_PUT['calories']);
             $stmt->bindParam(':glucides', $_PUT['glucides']);
             $stmt->bindParam(':image', $_PUT['image']);
+            $stmt->bindParam(':id', $id);
             $stmt->execute();
             http_response_code(201);
         } else {
