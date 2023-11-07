@@ -13,7 +13,7 @@ $(document).ready(function() {
 
     var table = $('#usersTable').DataTable({
         ajax: {
-            url: 'http://localhost/projet/IDAW/projet/backend/aliments.php',
+            url: 'http://localhost/IDAW/projet/backend/aliments.php',
             dataSrc: ''
         },
         columns: [
@@ -47,14 +47,35 @@ $(document).ready(function() {
 
     $('#usersTable').on('click', '.edit-btn', function() {
         var alimentId = $(this).data('id');
+        //prefillForm(alimentId);
         modal.style.display = "block";
+        $('#editAlimentForm').submit(function(event) {
+            event.preventDefault();
+            var formData = $(this).serialize();
+            updateAliment(formData, table, alimentId);
+            modal.style.display = "none";
+        });
+    });
+
+    var span = document.getElementsByClassName("close")[0];
+
+    span.onclick = function() {
+        modal.style.display = "none" ;
+    }
+
+    $('#editAlimentForm').submit(function(event) {
+        event.preventDefault();
+        var alimentId = $(this).data('id');
+        var formData = $(this).serialize();
+        updateAliment(formData, table, alimentId);
+        modal.style.display = "none";
     });
 
 });
 
 function addAliment(formData, table) {
     $.ajax({
-        url: 'http://localhost/projet/IDAW/projet/backend/aliments.php',
+        url: 'http://localhost/IDAW/projet/backend/aliments.php',
         type: 'POST',
         data: formData,
         success: function(response) {
@@ -68,7 +89,7 @@ function addAliment(formData, table) {
 
 function deleteAliment(userId, table) {
     $.ajax({
-        url: 'http://localhost/projet/IDAW/projet/backend/aliments.php?id=' + userId,
+        url: 'http://localhost/IDAW/projet/backend/aliments.php?id=' + userId,
         type: 'DELETE',
         success: function(response) {
             table.ajax.reload();
@@ -93,25 +114,23 @@ function updateAliment(formData, table, alimentId) {
     });
 }
 
-/*
+
 function prefillForm(alimentId) {
     $.ajax({
         url: 'http://localhost/IDAW/projet/backend/aliments.php?id=' + alimentId,
         type: 'GET',
         success: function(data) {
-            // Remplir le formulaire de modification avec les données récupérées
-            $('#editForm input[name="type"]').val(data.type);
-            $('#editForm input[name="nom"]').val(data.nom);
-            $('#editForm input[name="nutriscore"]').val(data.nutriscore);
-            $('#editForm input[name="calories"]').val(data.calories);
-            $('#editForm input[name="glucides"]').val(data.glucides);
-
-            // Vous pouvez également stocker l'ID de l'élément dans un champ caché pour le soumettre ultérieurement
-            $('#editForm input[name="id"]').val(data.id);
+            $('#editForm input[id="edit_type"]').val(data.type);
+            $('#editForm input[id="edit_nom"]').val(data.nom);
+            $('#editForm input[id="edit_nutriscore"]').val(data.nutriscore);
+            $('#editForm input[id="edit_calories"]').val(data.calories);
+            $('#editForm input[id="edit_glucides"]').val(data.glucides);
+            $('#editForm input[id="edit_image"]').val(data.image);
+            $('#editForm input[id="edit_id"]').val(data.id);
         },
         error: function(xhr, status, error) {
             alert("Erreur: " + xhr.responseText);
         }
     });
 }
-*/
+

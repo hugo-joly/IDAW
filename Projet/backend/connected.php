@@ -30,7 +30,7 @@
             $_SESSION['objectif'] = $userOBJECTIF;
             $_SESSION['sport'] = $userSPORT;
             $_SESSION['image'] = $userIMAGE;
-            header('Location: ../frontend/welcome.php');
+            header('Location: ../frontend/index.php');
         } else {
             header('Location: login.php');
         }
