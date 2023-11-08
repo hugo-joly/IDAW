@@ -1,7 +1,7 @@
 <?php
     require_once('templates/header.php');
     require_once('templates/menu.php');
-
+    require_once('../backend/config.php');
     $currentPageId = 'welcome';
     if(isset($_GET['page'])) {
         $currentPageId = $_GET['page'];
