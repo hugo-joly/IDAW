@@ -11,21 +11,35 @@
                             <?php echo '<td>' . $_SESSION['prenom'] . '</td>'; ?>
                         </div>
                     </div>
-                    <div>
-                        
-                    </div>
-                    
-                    <div>
-                        <table id="AlimentsTable">
-                            <thead>
-                                <tr>
-                                    <th>nom</th>
-                                    <th>date</th>
-                                    <th>poids</th>
-                                </tr>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
+                    <div class="contete">
+                        <div class="contetes">
+                            <table id="AlimentsTable">
+                                <thead>
+                                    <tr>
+                                        <th>nom</th>
+                                        <th>date</th>
+                                        <th>poids</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                        <div class="score">
+                            <form id="dateForm">
+                                <label for="dateInput">Saisissez une date :</label>
+                                <input type="date" id="dateInput" required>
+
+                                <button type="submit">Valider</button>
+                            </form>
+                            <div class="scosco">
+                                <p>
+                                    <span id="maTable" class="scoring"></span>
+                                    <span class="scoring">/</span>
+                                    <?php echo '<span>' . $_SESSION['objectif'] . '</span>'; ?> 
+                                </p>          
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

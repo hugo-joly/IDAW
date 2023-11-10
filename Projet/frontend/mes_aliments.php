@@ -1,6 +1,6 @@
 
     
-
+    
     <div class="sec">
         <div class="conteneur">
             <table id="usersTable" class="display">
@@ -18,52 +18,51 @@
             </table>
         </div>
     </div>
-
-
-    <div>
-        <div>
-            <p>
-
-            </p>
-            <img loading="lazy" src="images/plat.svg" class="nourriture_svg" alt="Image de nourriture">
+    <div class="seccc">
+        <div class="biboite">
+            <button id="showFormButton" class="bouton">
+                <p class="texte">
+                    Ajouter un aliment
+                </p>
+                <img loading="lazy" src="images/plat.svg" class="nourriture_svg" alt="Image de nourriture" fill="white">     
+            </button>
+            <div id="formContainer" style="display: none;">
+                <form id="addAlimentForm" class="fofo">
+                    <label for="type" class="lala">Type:</label>
+                    <input type="text" id="type" name="type" required><br><br>
+                    <label for="nom" class="lala">Nom:</label>
+                    <input type="text" id="nom" name="nom" required><br><br>
+                    <label for="nutriscore" class="lala">nutriscore:</label>
+                    <input type="text" id="nutriscore" name="nutriscore" required><br><br>
+                    <label for="calories" class="lala">Calories:</label>
+                    <input type="number" id="calories" name="calories" required><br><br>
+                    <label for="glucides" class="lala">Glucides:</label>
+                    <input type="number" id="glucides" name="glucides" required><br><br>
+                    <label for="image" class="lala">Url:</label>
+                    <input type="text" id="image" name="image"><br><br>
+                    <button type="submit" class="bubu">Ajouter Aliment</button>
+                </form> 
+            </div>
         </div>
     </div>
-
-    <form id="addAlimentForm">
-        <label for="type">Type:</label>
-        <input type="text" id="type" name="type" required><br><br>
-        <label for="nom">Nom:</label>
-        <input type="text" id="nom" name="nom" required><br><br>
-        <label for="nutriscore">nutriscore:</label>
-        <input type="text" id="nutriscore" name="nutriscore" required><br><br>
-        <label for="calories">Calories:</label>
-        <input type="number" id="calories" name="calories" required><br><br>
-        <label for="glucides">Glucides:</label>
-        <input type="number" id="glucides" name="glucides" required><br><br>
-        <label for="image">Url:</label>
-        <input type="text" id="image" name="image"><br><br>
-
-        <button type="submit">Ajouter Aliments</button>
-    </form>
-
-    <div id="edit_modal" class="modal">
+    
+    <div id="edit_modal" class="modal" style="display: none;">
         <div class = "modal-content">
             <span class="close">&times;</span>
             <form id="editForm" method="put">
                 <label for="edit_type">Type:</label>
-                <input type="text" id="edit_type"><br><br>
+                <input type="text" id="edit_type" name="type"><br><br>
                 <label for="edit_nom">Nom:</label>
-                <input type="text" id="edit_nom"><br><br>
+                <input type="text" id="edit_nom" name="nom"><br><br>
                 <label for="edit_nutriscore">nutriscore:</label>
-                <input type="text" id="edit_nutriscore"><br><br>
+                <input type="text" id="edit_nutriscore" name="nutriscore"><br><br>
                 <label for="edit_calories">Calories:</label>
-                <input type="number" id="edit_calories"><br><br>
+                <input type="number" id="edit_calories" name="calories"><br><br>
                 <label for="edit_glucides">Glucides:</label>
-                <input type="number" id="edit_glucides"><br><br>
+                <input type="number" id="edit_glucides" name="glucides"><br><br>
                 <label for="edit_image">Url:</label>
-                <input type="text" id="edit_image"><br><br>
-                <input type="hidden" id= "edit_id">
-
+                <input type="text" id="edit_image" name="image"><br><br>
+                <input type="hidden" id="edit_id">
                 <button type="submit">Enregistrer</button>
             </form>
         </div>

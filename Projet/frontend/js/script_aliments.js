@@ -13,29 +13,65 @@ $(document).ready(function() {
             {
                 data: null,
                 render: function(data) {
-                    return '<button class="edit-btn" data-id="' + data.id + '">Modifier</button> <button class="delete-btn" data-id="' + data.id + '">Supprimer</button>';
+                    return '<button class="edit-btn" data-id="' + data.id + '" data-type="' + data.type + '" data-nom="' + data.nom + '" data-nutriscore="' + data.nutriscore + '" data-calories="' + data.calories + '" data-glucides="' + data.glucides + '" data-image="' + data.image + '">Modifier</button> <button class="delete-btn" data-id="' + data.id + '">Supprimer</button>';
                 }
             }
         ]
     });
+
+    var showFormButton = document.getElementById('showFormButton');
+    var formContainer = document.getElementById('formContainer');
+
+    showFormButton.addEventListener('click', function() {
+        if (formContainer.style.display === 'none' || formContainer.style.display === '') {
+            formContainer.style.display = 'block';
+        } else {
+            formContainer.style.display = 'none';
+        }
+    });
+
     $('#addAlimentForm').submit(function(event) {
         event.preventDefault();
         var formData = $(this).serialize();
         addAliment(formData, table);
+        document.getElementById("addAlimentForm").reset();
     });
+
+
+
+
+
+
 
     $('#usersTable').on('click', '.delete-btn', function() {
         var userId = $(this).data('id');
         deleteAliment(userId, table);
     });
 
+
+
     var modal = document.getElementById("edit_modal");
 
     $('#usersTable').on('click', '.edit-btn', function() {
+        
+        var formulaire = document.getElementById('editForm');
         var alimentId = $(this).data('id');
-        //prefillForm(alimentId);
+        var userType = $(this).data('type');
+        var userNom = $(this).data('nom');
+        var userNutriscore = $(this).data('nutriscore');
+        var userCalories = $(this).data('calories');
+        var userGlucides = $(this).data('glucides');
+        var userImage = $(this).data('image');
+        
+        formulaire.elements["nom"].value = userNom;
+        formulaire.elements["type"].value = userType;
+        formulaire.elements["nutriscore"].value = userNutriscore;
+        formulaire.elements["calories"].value = userCalories;
+        formulaire.elements["glucides"].value = userGlucides;
+        formulaire.elements["image"].value = userImage;
         modal.style.display = "block";
-        $('#editAlimentForm').submit(function(event) {
+
+        $('#editForm').submit(function(event) {
             event.preventDefault();
             var formData = $(this).serialize();
             updateAliment(formData, table, alimentId);
@@ -48,15 +84,6 @@ $(document).ready(function() {
     span.onclick = function() {
         modal.style.display = "none" ;
     }
-
-    $('#editAlimentForm').submit(function(event) {
-        event.preventDefault();
-        var alimentId = $(this).data('id');
-        var formData = $(this).serialize();
-        updateAliment(formData, table, alimentId);
-        modal.style.display = "none";
-    });
-
 });
 
 function addAliment(formData, table) {
@@ -72,6 +99,16 @@ function addAliment(formData, table) {
         }
     });
 }
+
+
+
+
+
+
+
+
+
+
 
 function deleteAliment(userId, table) {
     $.ajax({
@@ -101,22 +138,7 @@ function updateAliment(formData, table, alimentId) {
 }
 
 
-function prefillForm(alimentId) {
-    $.ajax({
-        url: 'http://localhost/IDAW/projet/backend/aliments.php?id=' + alimentId,
-        type: 'GET',
-        success: function(data) {
-            $('#editForm input[id="edit_type"]').val(data.type);
-            $('#editForm input[id="edit_nom"]').val(data.nom);
-            $('#editForm input[id="edit_nutriscore"]').val(data.nutriscore);
-            $('#editForm input[id="edit_calories"]').val(data.calories);
-            $('#editForm input[id="edit_glucides"]').val(data.glucides);
-            $('#editForm input[id="edit_image"]').val(data.image);
-            $('#editForm input[id="edit_id"]').val(data.id);
-        },
-        error: function(xhr, status, error) {
-            alert("Erreur: " + xhr.responseText);
-        }
-    });
-}
+
+
+
 

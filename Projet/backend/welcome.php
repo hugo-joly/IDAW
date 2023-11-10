@@ -13,6 +13,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
    
     echo json_encode($users);
+} elseif ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
+    $stmt = $pdo->prepare("DELETE FROM alimentation WHERE poids = :poids AND date = :date ORDER BY poids LIMIT 1");
+    $stmt->bindParam(':poids', $_GET['poids']);
+    $stmt->bindParam(':date', $_GET['date']);
+    $stmt->execute();
+    http_response_code(204);
 }
 ?>
 

@@ -55,3 +55,23 @@ a:hover:after {
 #currentpage {
     color:#22DA9F;
 }
+
+.contete {
+    display: flex;
+    flex-direction: row;
+}
+
+table.contetes {
+    width: 1/2;
+}
+
+.score {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 1/2;
+}
+.scoring {
+    margin-right: 8px;
+}

@@ -29,7 +29,6 @@ function updateChampSQL(formData) {
         processData: false,  
         contentType: false,
         success: function(response) {
-            window.location.href = "../frontend/welcome.php";
         },
         error: function(xhr, status, error) {
             alert("Erreur: " + xhr.responseText);
