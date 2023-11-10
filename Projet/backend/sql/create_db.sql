@@ -101,33 +101,6 @@ INSERT INTO `ALIMENTS` (`id`, `id_user`, `type`, `nom`, `nutriscore`, `calories`
 (19, 1, 'Desserts', 'Panier de Yoplait', 'B', 91, 12, 'panier_de_yoplait.jpg'),
 (20, 1, 'Desserts', 'Compote de pomme', 'A', 55, 12, 'compote_de_pomme.jpg');
 
--- --------------------------------------------------------
-
---
--- Structure de la table `FAV_ALIMENTS`
---
-
-CREATE TABLE `FAV_ALIMENTS` (
-  `id_user` int(11) NOT NULL,
-  `id_aliments` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `PERS_ALIMENTS`
---
-
-CREATE TABLE `PERS_ALIMENTS` (
-  `id` int(11) NOT NULL,
-  `id_user` int(11) NOT NULL,
-  `type` varchar(200) NOT NULL,
-  `nom` varchar(200) NOT NULL,
-  `nutriscore` varchar(200) NOT NULL,
-  `calories` int(11) NOT NULL,
-  `glucides` int(11) NOT NULL,
-  `image` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -153,7 +126,9 @@ CREATE TABLE `USERS` (
 --
 
 INSERT INTO `USERS` (`id`, `nom`, `prenom`, `email`, `telephone`, `objectif`, `identifiant`, `mdp`, `sport`, `image`) VALUES
-(1, 'hugo', 'joly', 'hugo.joly@gmail.com', '0634873951', 2000, 'hugo', 'joly', 0, 'macron.jpg');
+(1, 'hugo', 'joly', 'hugo.joly@gmail.com', '0634873951', 2000, 'hugo', 'joly', 0, 'macron.jpg'),
+(2, 'baptiste', 'gratens', 'baptiste.gratens@gmail.com', '0615962772', 2500, 'baptiste', 'gratens', 400, ''),
+(3, 'Alix', 'domange', 'alix.domange@gmail.com', '0634873951', 2000, 'alix', 'domange', 0, '');
 
 --
 -- Index pour les tables déchargées
@@ -165,11 +140,6 @@ INSERT INTO `USERS` (`id`, `nom`, `prenom`, `email`, `telephone`, `objectif`, `i
 ALTER TABLE `ALIMENTS`
   ADD PRIMARY KEY (`id`);
 
---
--- Index pour la table `PERS_ALIMENTS`
---
-ALTER TABLE `PERS_ALIMENTS`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `USERS`
@@ -187,11 +157,7 @@ ALTER TABLE `USERS`
 ALTER TABLE `ALIMENTS`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
---
--- AUTO_INCREMENT pour la table `PERS_ALIMENTS`
---
-ALTER TABLE `PERS_ALIMENTS`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
 
 --
 -- AUTO_INCREMENT pour la table `USERS`

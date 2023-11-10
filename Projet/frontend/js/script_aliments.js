@@ -1,7 +1,7 @@
 $(document).ready(function() {
     var table = $('#usersTable').DataTable({
         ajax: {
-            url: endpointPrefix + '/aliments.php',
+            url: endpoint_backend + '/aliments.php',
             dataSrc: ''
         },
         columns: [
@@ -70,10 +70,7 @@ $(document).ready(function() {
         formulaire.elements["glucides"].value = userGlucides;
         formulaire.elements["image"].value = userImage;
         modal.style.display = "block";
-<<<<<<< HEAD
 
-=======
->>>>>>> hugo
         $('#editForm').submit(function(event) {
             event.preventDefault();
             var formData = $(this).serialize();
@@ -87,23 +84,11 @@ $(document).ready(function() {
     span.onclick = function() {
         modal.style.display = "none" ;
     }
-<<<<<<< HEAD
-=======
-
-    $('#editForm').submit(function(event) {
-        event.preventDefault();
-        var alimentId = $(this).data('id');
-        var formData = $(this).serialize();
-        updateAliment(formData, table, alimentId);
-        modal.style.display = "none";
-    });
-
->>>>>>> hugo
 });
 
 function addAliment(formData, table) {
     $.ajax({
-        url: endpointPrefix + '/aliments.php',
+        url: 'http://localhost/projet/IDAW/projet/backend/aliments.php',
         type: 'POST',
         data: formData,
         success: function(response) {
@@ -115,19 +100,9 @@ function addAliment(formData, table) {
     });
 }
 
-
-
-
-
-
-
-
-
-
-
 function deleteAliment(userId, table) {
     $.ajax({
-        url: endpointPrefix + '/aliments.php?id=' + userId,
+        url: 'http://localhost/projet/IDAW/projet/backend/aliments.php?id=' + userId,
         type: 'DELETE',
         success: function(response) {
             table.ajax.reload();
@@ -140,7 +115,7 @@ function deleteAliment(userId, table) {
 
 function updateAliment(formData, table, alimentId) {
     $.ajax({
-        url: endpointPrefix + '/aliments.php?id=' + alimentId,
+        url: 'http://localhost/projet/IDAW/projet/backend/aliments.php?id=' + alimentId,
         type: 'PUT',
         data: formData,
         success: function(response) {
@@ -153,28 +128,7 @@ function updateAliment(formData, table, alimentId) {
 }
 
 
-<<<<<<< HEAD
 
 
 
-=======
-function prefillForm(alimentId) {
-    $.ajax({
-        url: endpointPrefix + '/aliments.php?id=' + alimentId,
-        type: 'GET',
-        success: function(data) {
-            $('#editForm input[id="edit_type"]').val(data.type);
-            $('#editForm input[id="edit_nom"]').val(data.nom);
-            $('#editForm input[id="edit_nutriscore"]').val(data.nutriscore);
-            $('#editForm input[id="edit_calories"]').val(data.calories);
-            $('#editForm input[id="edit_glucides"]').val(data.glucides);
-            $('#editForm input[id="edit_image"]').val(data.image);
-            $('#editForm input[id="edit_id"]').val(data.id);
-        },
-        error: function(xhr, status, error) {
-            alert("Erreur: " + xhr.responseText);
-        }
-    });
-}
->>>>>>> hugo
 

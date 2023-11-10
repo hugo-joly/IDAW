@@ -31,9 +31,9 @@ font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans
 
 .save_button {
     background-color: #22DA9F;
+    width: 100px;
     color: white;
     padding: 10px 15px;
-    margin-left: 16px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -41,12 +41,11 @@ font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-/* Style du bouton de soumission au survol */
 button.info:hover {
-background-color: #20c591;
+background-color: #1eb887;
 }
 button.bouton:hover {
-background-color: #20c591;
+background-color: #1eb887;
 }
 
 img.nourriture_svg {
@@ -56,10 +55,13 @@ img.nourriture_svg {
 
 button.bouton {
     margin-top: 48px;
+    width: 200px;
+    background-color: #22DA9F;
+    margin-bottom: 48px;
 }
 
 
-.boite {
+.biboite {
     display: flex;
     gap: 16px;
     justify-content: center;

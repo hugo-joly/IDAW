@@ -25,7 +25,7 @@ sqlForm.addEventListener('submit', function(event) {
 
 function updateChampSQL(formData) {
     $.ajax({
-        url: 'http://localhost/IDAW/projet/backend/info_aliment.php', 
+        url: endpoint_backend + '/info_aliment.php', 
         type: 'POST',
         data: formData,
         processData: false,  

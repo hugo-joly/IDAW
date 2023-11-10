@@ -1,7 +1,9 @@
+
 $(document).ready(function() {
+    
     var table = $('#AlimentsTable').DataTable({
         ajax: {
-            url: 'http://localhost/IDAW/projet/backend/welcome.php',
+            url: endpoint_backend + '/welcome.php',
             dataSrc: ''
         },
         columns: [
@@ -30,7 +32,7 @@ $(document).ready(function() {
 
 function chargerDonneesDansTable() {
     $.ajax({
-        url: 'http://localhost/projet/IDAW/projet/backend/score.php', 
+        url: endpoint_backend + '/score.php', 
         type: 'GET',
         dataType: 'json',
         success: function(data) {
@@ -54,7 +56,7 @@ function afficherDonneesDansTable(data) {
 
 function deleteAliment(userPoids, userNom, userDate, table) {
     $.ajax({
-        url: 'http://localhost/projet/IDAW/projet/backend/welcome.php?poids=' + userPoids + '&nom=' + userNom + '&date=' + userDate,
+        url: endpoint_backend + '/welcome.php?poids=' + userPoids + '&nom=' + userNom + '&date=' + userDate,
         type: 'DELETE',
         success: function(response) {
             table.ajax.reload();
@@ -69,7 +71,7 @@ document.getElementById('dateForm').addEventListener('submit', function(event) {
     event.preventDefault();
     var selectedDate = document.getElementById('dateInput').value;
     $.ajax({
-        url: 'http://localhost/projet/IDAW/projet/backend/score_2.php?date=' + selectedDate, 
+        url: endpoint_backend + '/score_2.php?date=' + selectedDate, 
         type: 'GET',
         dataType: 'json',
         success: function(data) {

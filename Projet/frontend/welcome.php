@@ -3,7 +3,11 @@
                 <div class="contenu">
                     <div class="titre">
                         <div>
-                            <?php echo '<img loading="lazy" src="images/'. $_SESSION['image'].'" alt="Image de Profil">'; ?>
+                            <?php 
+                            
+                                    echo '<img loading="lazy" src="images/'. $_SESSION['image'].'" alt="Image de Profil">'; 
+                                    
+                            ?>
                             
                         </div>
                         <div class="nom">

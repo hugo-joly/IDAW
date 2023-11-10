@@ -1,7 +1,7 @@
 $(document).ready(function() {
     var table = $('#usersTable').DataTable({
         ajax: {
-            url: 'http://localhost/IDAW/projet/backend/users.php',
+            url: endpoint_backend + '/users.php',
             dataSrc: ''
         },
         columns: [

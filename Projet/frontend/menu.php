@@ -8,18 +8,18 @@
     echo '
     <div class="section_2">
         <div class="logo">
-            <a href="../frontend/index.php?page=welcome"> MON REGIME POINT COM</a>
+            <a href="/index.php?page=welcome"> MON REGIME POINT COM</a>
         </div>
         <div class="menu_2">';
         foreach($mymenu as $pageId => $pageTitle) {
             if ($pageId === $currentPageId) {
             echo    '<div>
-                        <a id = "currentpage" href="../frontend/index.php?page='. $pageId. '">'. $pageTitle[0]. '</a>'.
+                        <a id = "currentpage" href="index.php?page='. $pageId. '">'. $pageTitle[0]. '</a>'.
                     '</div>';
             }
             else {
             echo    '<div>
-                        <a href="../frontend/index.php?page='. $pageId. '">'. $pageTitle[0]. '</a>'.
+                        <a href="index.php?page='. $pageId. '">'. $pageTitle[0]. '</a>'.
                     '</div>';
             }
         }
