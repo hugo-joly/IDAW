@@ -1,7 +1,7 @@
 $(document).ready(function() {
     var table = $('#usersTable').DataTable({
         ajax: {
-            url: 'http://localhost/projet/IDAW/projet/backend/users.php',
+            url: 'http://localhost/IDAW/projet/backend/users.php',
             dataSrc: ''
         },
         columns: [
@@ -13,7 +13,8 @@ $(document).ready(function() {
         ]
     });
 
-    $('#usersTable tbody').on('click', 'tr', function() {
+
+    $('#usersTable tbody').on('click', 'tr', function() {            
         var rowData = table.row(this).data(); 
         if (rowData) {
             var id = rowData.id; 

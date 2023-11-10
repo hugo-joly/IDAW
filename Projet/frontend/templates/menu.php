@@ -8,7 +8,7 @@
     echo '
     <div class="section_2">
         <div class="logo">
-            <a href="../frontend/welcome.php"> MON REGIME POINT COM</a>
+            <a href="../frontend/index.php?page=welcome"> MON REGIME POINT COM</a>
         </div>
         <div class="menu_2">';
         foreach($mymenu as $pageId => $pageTitle) {

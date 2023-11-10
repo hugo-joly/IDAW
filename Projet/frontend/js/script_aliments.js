@@ -1,7 +1,7 @@
 $(document).ready(function() {
     var table = $('#usersTable').DataTable({
         ajax: {
-            url: 'http://localhost/projet/IDAW/projet/backend/aliments.php',
+            url: endpointPrefix + '/aliments.php',
             dataSrc: ''
         },
         columns: [
@@ -35,7 +35,7 @@ $(document).ready(function() {
         var alimentId = $(this).data('id');
         //prefillForm(alimentId);
         modal.style.display = "block";
-        $('#editAlimentForm').submit(function(event) {
+        $('#editForm').submit(function(event) {
             event.preventDefault();
             var formData = $(this).serialize();
             updateAliment(formData, table, alimentId);
@@ -49,7 +49,7 @@ $(document).ready(function() {
         modal.style.display = "none" ;
     }
 
-    $('#editAlimentForm').submit(function(event) {
+    $('#editForm').submit(function(event) {
         event.preventDefault();
         var alimentId = $(this).data('id');
         var formData = $(this).serialize();
@@ -61,7 +61,7 @@ $(document).ready(function() {
 
 function addAliment(formData, table) {
     $.ajax({
-        url: 'http://localhost/projet/IDAW/projet/backend/aliments.php',
+        url: endpointPrefix + '/aliments.php',
         type: 'POST',
         data: formData,
         success: function(response) {
@@ -75,7 +75,7 @@ function addAliment(formData, table) {
 
 function deleteAliment(userId, table) {
     $.ajax({
-        url: 'http://localhost/projet/IDAW/projet/backend/aliments.php?id=' + userId,
+        url: endpointPrefix + '/aliments.php?id=' + userId,
         type: 'DELETE',
         success: function(response) {
             table.ajax.reload();
@@ -88,7 +88,7 @@ function deleteAliment(userId, table) {
 
 function updateAliment(formData, table, alimentId) {
     $.ajax({
-        url: 'http://localhost/projet/IDAW/projet/backend/aliments.php?id=' + alimentId,
+        url: endpointPrefix + '/aliments.php?id=' + alimentId,
         type: 'PUT',
         data: formData,
         success: function(response) {
@@ -103,7 +103,7 @@ function updateAliment(formData, table, alimentId) {
 
 function prefillForm(alimentId) {
     $.ajax({
-        url: 'http://localhost/IDAW/projet/backend/aliments.php?id=' + alimentId,
+        url: endpointPrefix + '/aliments.php?id=' + alimentId,
         type: 'GET',
         success: function(data) {
             $('#editForm input[id="edit_type"]').val(data.type);

@@ -8,6 +8,7 @@ showFormButton.addEventListener('click', function() {
         formContainer.style.display = 'none';
     }
 });
+
 var sqlForm = document.getElementById('sqlForm');
 sqlForm.addEventListener('submit', function(event) {
     event.preventDefault();
@@ -19,17 +20,17 @@ sqlForm.addEventListener('submit', function(event) {
     formData.append('id_aliment', id_aliment);
     formData.append('poids', poids);
     updateChampSQL(formData);
+    window.location.href = "index.php?page=welcome";
 });
 
 function updateChampSQL(formData) {
     $.ajax({
-        url: 'http://localhost/projet/IDAW/projet/backend/info_aliment.php', 
+        url: 'http://localhost/IDAW/projet/backend/info_aliment.php', 
         type: 'POST',
         data: formData,
         processData: false,  
         contentType: false,
         success: function(response) {
-            window.location.href = "../frontend/welcome.php";
         },
         error: function(xhr, status, error) {
             alert("Erreur: " + xhr.responseText);

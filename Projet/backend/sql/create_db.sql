@@ -80,26 +80,26 @@ CREATE TABLE `ALIMENTS` (
 --
 
 INSERT INTO `ALIMENTS` (`id`, `id_user`, `type`, `nom`, `nutriscore`, `calories`, `glucides`, `image`) VALUES
-(1, 0, 'Snacks', 'TUC', 'C', 144, 20, ''),
-(2, 0, 'Petits-déjeuners', 'Nutella', 'E', 539, 58, ''),
-(3, 2, 'Snacks', 'Prince', 'D', 467, 69, ''),
-(4, 1, 'Produits laitiers', 'SKYR', 'A', 57, 4, ''),
-(5, 1, 'Snacks', 'Kinder Bueno', 'E', 572, 50, ''),
-(6, 1, 'Produits laitiers', 'Yaourt nature', 'A', 45, 5, ''),
-(7, 1, 'Aliments et boissons à base de végétaux', 'Amandes', 'A', 621, 5, ''),
-(8, 1, 'Aliments et boissons à base de végétaux', 'Pain de mie', 'B', 268, 49, ''),
-(9, 1, 'Aliments et boissons à base de végétaux', 'Spaghetti', 'A', 347, 64, ''),
-(10, 1, 'Condiments', 'Moutarde', 'C', 151, 4, ''),
-(11, 1, 'Condiments', 'Ketchup', 'D', 102, 23, ''),
-(12, 1, 'Condiments', 'Mayonnaise', 'E', 648, 2, ''),
-(13, 1, 'Snacks', 'Madeleines', 'D', 419, 54, ''),
-(14, 1, 'Snacks', 'Napolitain', 'E', 428, 58, ''),
-(15, 1, 'Aliments et boissons à base de végétaux', 'Lentilles', 'A', 111, 11, ''),
-(16, 1, 'Viandes', 'Steak haché', 'C', 209, 0, ''),
-(17, 1, 'Viandes', 'Jambon', 'B', 115, 1, ''),
-(18, 1, 'Viandes', 'Knacki', 'D', 267, 2, ''),
-(19, 1, 'Desserts', 'Panier de Yoplait', 'B', 91, 12, ''),
-(20, 1, 'Desserts', 'Compote de pomme', 'A', 55, 12, '');
+(1, 0, 'Snacks', 'TUC', 'C', 144, 20, 'tuc.webp'),
+(2, 1, 'Petits-déjeuners', 'Nutella', 'E', 539, 58, 'nutella.jpg'),
+(3, 2, 'Snacks', 'Prince', 'D', 467, 69, 'prince.jpg'),
+(4, 1, 'Produits laitiers', 'SKYR', 'A', 57, 4, 'skyr.jpg'),
+(5, 1, 'Snacks', 'Kinder Bueno', 'E', 572, 50, 'kinder_bueno.jpg'),
+(6, 1, 'Produits laitiers', 'Yaourt nature', 'A', 45, 5, 'yaourt_nature.jpg'),
+(7, 1, 'Aliments et boissons à base de végétaux', 'Amandes', 'A', 621, 5, 'amandes.jpg'),
+(8, 1, 'Aliments et boissons à base de végétaux', 'Pain de mie', 'B', 268, 49, 'pain_de_mie.jpg'),
+(9, 1, 'Aliments et boissons à base de végétaux', 'Spaghetti', 'A', 347, 64, 'spaghetti.jpg'),
+(10, 1, 'Condiments', 'Moutarde', 'C', 151, 4, 'moutarde.jpg'),
+(11, 1, 'Condiments', 'Ketchup', 'D', 102, 23, 'ketchup.jpg'),
+(12, 1, 'Condiments', 'Mayonnaise', 'E', 648, 2, 'mayonnaise.jpg'),
+(13, 1, 'Snacks', 'Madeleines', 'D', 419, 54, 'madelaines.jpg'),
+(14, 1, 'Snacks', 'Napolitain', 'E', 428, 58, 'napolitain.jpg'),
+(15, 1, 'Aliments et boissons à base de végétaux', 'Lentilles', 'A', 111, 11, 'lentilles.jpg'),
+(16, 1, 'Viandes', 'Steak haché', 'C', 209, 0, 'steak_hache.jpg'),
+(17, 1, 'Viandes', 'Jambon', 'B', 115, 1, 'jambon.jpg'),
+(18, 1, 'Viandes', 'Knacki', 'D', 267, 2, 'knacki.jpg'),
+(19, 1, 'Desserts', 'Panier de Yoplait', 'B', 91, 12, 'panier_de_yoplait.jpg'),
+(20, 1, 'Desserts', 'Compote de pomme', 'A', 55, 12, 'compote_de_pomme.jpg');
 
 -- --------------------------------------------------------
 
