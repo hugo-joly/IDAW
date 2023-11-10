@@ -7,7 +7,9 @@
         );
     echo '
     <div class="section_2">
-        <div class="logo">MON REGIME POINT COM</div>
+        <div class="logo">
+            <a href="../frontend/index.php?page=welcome"> MON REGIME POINT COM</a>
+        </div>
         <div class="menu_2">';
         foreach($mymenu as $pageId => $pageTitle) {
             if ($pageId === $currentPageId) {

@@ -1,33 +1,52 @@
-.section {
+.box_centered {
+    display: flex;
     width: 100%;
-    display: flex;
     justify-content: center;
-    margin-top: 48px;
+    margin-top: 128px;
 }
 
-.boite {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 5px solid #024644;
-    border-radius: 25px;
-    box-shadow: 0px 0px 5px 3px #22DA9F;
+
+.info_aliment {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    margin-bottom: 48px;
+    font-size : 16px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-.contenu {
-    padding: 24px;
+.eat_button {
+background-color: #22DA9F;
+color: white;
+padding: 10px 15px;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+font-size : 15px;
+font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-.titre {
-    display: flex;
-    gap: 200px;
-    align-items: center;
+.save_button {
+    background-color: #22DA9F;
+    color: white;
+    padding: 10px 15px;
+    margin-left: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size : 15px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-.nom {
-    margin-right: 200px;
-    font-size: 32px;
-    color: #024644;
+/* Style du bouton de soumission au survol */
+button.info:hover {
+background-color: #20c591;
+}
+button.bouton:hover {
+background-color: #20c591;
 }
 
 img.nourriture_svg {
@@ -37,7 +56,10 @@ img.nourriture_svg {
 
 button.bouton {
     margin-top: 48px;
-    background-color: #22DA9F;
+}
+
+
+.boite {
     display: flex;
     gap: 16px;
     justify-content: center;
