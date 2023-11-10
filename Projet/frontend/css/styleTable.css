@@ -454,6 +454,7 @@ table.dataTable td {
 .dataTables_wrapper {
   position: relative;
   clear: both;
+  padding: 12px;
 }
 .dataTables_wrapper .dataTables_length {
   float: left;

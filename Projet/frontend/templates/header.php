@@ -12,6 +12,7 @@
         <link rel="stylesheet" type="text/css" href="css/welcome.css">
         <link rel="stylesheet" type="text/css" href="css/form_edit.css">
         <link rel="stylesheet" type="text/css" href="css/info_aliment.css">
+        <link rel="stylesheet" type="text/css" href="css/aliments.css">
     </head>
 
 <body>

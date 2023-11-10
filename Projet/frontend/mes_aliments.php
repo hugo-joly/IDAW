@@ -1,17 +1,33 @@
 
-    <table id="usersTable" class="display">
-        <thead>
-            <tr>
-                <th>type</th>
-                <th>nom</th>
-                <th>nutriscore</th>
-                <th>calories</th>
-                <th>glucides</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody></tbody>
-    </table>
+    
+
+    <div class="sec">
+        <div class="conteneur">
+            <table id="usersTable" class="display">
+                <thead>
+                    <tr>
+                        <th>type</th>
+                        <th>nom</th>
+                        <th>nutriscore</th>
+                        <th>calories</th>
+                        <th>glucides</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <div>
+        <div>
+            <p>
+
+            </p>
+            <img loading="lazy" src="images/plat.svg" class="nourriture_svg" alt="Image de nourriture">
+        </div>
+    </div>
 
     <form id="addAlimentForm">
         <label for="type">Type:</label>

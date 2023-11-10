@@ -1,0 +1,10 @@
+.conteneur {
+    border: 5px solid #024644;
+    border-radius: 25px;
+}
+
+.sec  {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
